@@ -1,15 +1,12 @@
 # This is my project title
 
-This sentence describes what my project is about summarized.
-
+This project is about a DAO where you can trade/mint NFTs and make proposals
 ## More Details
 
-I can explain how my project works here with different topics.
-
+Mint,withdraw,vote,share your benefit with profits adding proposals.
 ## Upcoming
 
-- [x] I have done this activity
-- [ ] I plan to do this activity next
+- [ ] I plan to do add more features such as adding collection pages and more DAO features.
 
 ## Contribution
 
@@ -19,8 +16,5 @@ Feel free to contribute to this project to make it better!
 
 This project has an MIT License.
 
-## Made by love
+# DAO-1.1
 
-- [StarterTemplates](https://twitter.com/startertemp)
-- [LearnWeb3DAO](https://learnweb3.io)
-# dao-tutorial
