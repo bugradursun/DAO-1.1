@@ -77,15 +77,13 @@ contract CryptoDevsDAO is Ownable {
         _;
     }
 
-    modifier nftHolderOnly() {
-        // allows a fnc to be called by someone who has minimum 1 cryptodevsnft
-        require(cryptoDevsNFT.balanceOf(msg.sender) > 0, "NOT_A_DAO_MEMBER");
-        _;
-    }
+    //modifier nftHolderOnly() {
+    //    // allows a fnc to be called by someone who has minimum 1 cryptodevsnft
+    //    require(cryptoDevsNFT.balanceOf(msg.sender) > 0, "NOT_A_DAO_MEMBER");
+    //    _;
+    //}
 
-    function createProposal(
-        uint256 _nftTokenId
-    ) external nftHolderOnly returns (uint256) {
+    function createProposal(uint256 _nftTokenId) external returns (uint256) {
         require(nftMarketplace.available(_nftTokenId), "NFT_NOT_FOR_SALE");
         Proposal storage proposal = proposals[numProposals];
         proposal.nftTokenId = _nftTokenId;
@@ -104,7 +102,7 @@ contract CryptoDevsDAO is Ownable {
     function voteOnProposal(
         uint256 proposalIndex,
         Vote vote
-    ) external nftHolderOnly activeProposalOnly(proposalIndex) {
+    ) external activeProposalOnly(proposalIndex) {
         Proposal storage proposal = proposals[proposalIndex];
 
         uint256 voterNFTBalance = cryptoDevsNFT.balanceOf(msg.sender);
@@ -127,7 +125,7 @@ contract CryptoDevsDAO is Ownable {
 
     function executeProposal(
         uint256 proposalIndex
-    ) external nftHolderOnly inactiveProposalOnly(proposalIndex) {
+    ) external inactiveProposalOnly(proposalIndex) {
         Proposal storage proposal = proposals[proposalIndex];
         if (proposal.yayVotes > proposal.nayVotes) {
             uint256 nftPrice = nftMarketplace.getPrice();

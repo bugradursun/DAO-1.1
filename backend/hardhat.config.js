@@ -34,6 +34,7 @@ module.exports = {
     goerli: {
       url: process.env.QUICKNODE_HTTP_URL,
       accounts: [process.env.PRIVATE_KEY],
+      allowUnlimitedContractSize: true,
     },
   },
 };
